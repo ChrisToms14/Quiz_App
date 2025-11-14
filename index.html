@@ -1,13 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="quiz-card">
+        <!-- Quiz View -->
+        <div id="quizView" class="view active">
+          <div class="progress-wrapper">
+            <p class="progress-text" id="progressText">Question 1 of 5</p>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <h2 class="question" id="questionText">Question text goes here</h2>
+
+          <div class="options-container" id="optionsContainer"></div>
+
+          <div class="feedback-message" id="feedbackMessage" role="alert" aria-live="polite" style="display: none;"></div>
+
+          <button class="next-button" id="nextButton" style="display: none;">Next Question</button>
+        </div>
+
+        <!-- Results View -->
+        <div id="resultsView" class="view">
+          <div class="results-container">
+            <h2 class="score-title">Quiz Complete!</h2>
+            <p class="score-text" id="scoreText">You got 0 out of 5 correct</p>
+
+            <div class="summary-list" id="summaryList" role="region" aria-label="Quiz summary"></div>
+
+            <button class="next-button" id="retryButton">
+              <span class="retry-icon">↻</span>
+              Retry Quiz
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
